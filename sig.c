@@ -6,7 +6,7 @@
 
 static void sighandler(int signo){
   if (signo == SIGINT){
-    int fd = open("errlog.txt", O_APPEND | O_CREAT, 777 );
+    int fd = open("errlog.txt", O_APPEND | O_CREAT, 0666 );
     char * err = "exited because SIGINT was mean to me";
     write(fd, err, sizeof(*err));
     exit(0);
